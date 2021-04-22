@@ -70,8 +70,6 @@ $(document).ready(function () {
             for (let i = 0; i < element.length; i++) {
 
                 var temp = element[i];
-                console.log(element[i]);
-
                 var id = temp.id;
                 var name = temp.name;
                 var selected = temp.selected;
@@ -93,14 +91,11 @@ $(document).ready(function () {
                         return;
                     }
                     if (id == id1 && name == name1 && selected == selected1 && radiovalue == radiovalue1 && assign[j]) {
-
                         element[i].quantity = Number(temp.quantity) + Number(temp1.quantity);
                         var a = temp.checkedValue;
                         var b = [];
                         b = temp1.checkedValue;
-
                         var c = a.concat(b);
-
                         if (c == "") continue;
                         element[i].checkedValue = c.filter((item, pos) => c.indexOf(item) === pos)
                         assign[j] = false;
