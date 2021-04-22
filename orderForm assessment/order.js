@@ -62,13 +62,11 @@ $(document).ready(function () {
         this.join = function () {
             cur.data1([]);
             var element = JSON.parse(ko.toJSON(cur.row()));
-
             var assign = [];
             for (let i = 0; i < element.length; i++) {
                 assign[i] = true;
             }
             for (let i = 0; i < element.length; i++) {
-
                 var temp = element[i];
                 var id = temp.id;
                 var name = temp.name;
