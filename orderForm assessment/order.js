@@ -102,22 +102,16 @@ $(document).ready(function () {
                     }
                 }
             }
-
             for (let i = 0; i < element.length; i++) {
                 if (assign[i]) {
                     if (element[i].checkedValue.length == 0) {
-
                         element[i].checkedValue.push("NA");
                     }
-
                     cur.data1.push(element[i]);
-
                 }
-
             }
             table.css('display', 'block');
         }
-
     }
     ko.applyBindings(new CartFunction());
 })
