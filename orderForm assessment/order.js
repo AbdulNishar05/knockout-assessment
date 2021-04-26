@@ -41,7 +41,6 @@ $(document).ready(function () {
             cur.row.remove(this);
         }
         this.clear = function () {
-            var element = JSON.parse(ko.toJSON(cur.row()));
             for (let i = 0; i < cur.row().length; i++) {
                 cur.row()[i].id("");
                 cur.row()[i].name("");
