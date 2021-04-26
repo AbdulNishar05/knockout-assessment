@@ -21,7 +21,7 @@ function TableViewModel() {
         self.displayFilters(!self.displayFilters());
     }
 
-    this.filterByCountry = function (item, event) {
+    this.filterByCountry = function (event) {
         let country = event.currentTarget.value
         if (event.currentTarget.checked) {
             let cities = document.getElementsByName(country);
@@ -48,7 +48,7 @@ function TableViewModel() {
         filterAll();
         return true;
     }
-    this.filterByCity = function (item, event) {
+    this.filterByCity = function (event) {
         let itCountry = event.currentTarget.name;
         if (!self.countries().includes(itCountry)) {
             self.countries().push(itCountry);
@@ -108,7 +108,7 @@ function TableViewModel() {
             filterAll();
         }
     }
-    this.ageFilter = function (item, event) {
+    this.ageFilter = function (event) {
         let age = Number(event.currentTarget.value);
         self.ageValue(age);
         filterAll();
@@ -141,7 +141,7 @@ function TableViewModel() {
             filterAll();
         }
     }
-    this.salaryFilter = function (item, event) {
+    this.salaryFilter = function (event) {
         let salary = Number(event.currentTarget.value);
         self.salaryValue(salary);
         filterAll();
