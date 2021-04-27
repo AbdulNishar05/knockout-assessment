@@ -11,7 +11,7 @@ function TableViewModel() {
     this.rowsPerPage = ko.observable(10);
     this.totalPagesHolder = ko.observableArray();
     this.totalPages = ko.observable(0);
-    this.showItems = function (event) {
+    this.showItems = function (item, event) {
         self.pageNumber(0);
         self.rowsPerPage(event.currentTarget.value);
         generatePagination();
@@ -19,8 +19,8 @@ function TableViewModel() {
     this.showFilterOption = function () {
         self.displayFilters(!self.displayFilters());
     }
-
-    this.filterByCountry = function (event) {
+ 
+    this.filterByCountry = function (item, event) {
         let country = event.currentTarget.value
         if (event.currentTarget.checked) {
             let cities = document.getElementsByName(country);
@@ -35,7 +35,7 @@ function TableViewModel() {
                 let city = cities[j].value;
                 document.getElementsByClassName(country)[j].style.display = 'none';
                 if (self.citiesByCountry().includes(city)) {
-                    self.citiesByCountry.remove(city);
+                   self.citiesByCountry.remove(city);
                 }
                 if (cities[j].checked) {
                     document.getElementsByClassName(country)[j].style.display = 'inline-block';
@@ -47,7 +47,7 @@ function TableViewModel() {
         filterAll();
         return true;
     }
-    this.filterByCity = function (event) {
+    this.filterByCity = function (item, event) {
         let itCountry = event.currentTarget.name;
         if (!self.countries().includes(itCountry)) {
             self.countries().push(itCountry);
@@ -107,7 +107,7 @@ function TableViewModel() {
             filterAll();
         }
     }
-    this.ageFilter = function (event) {
+    this.ageFilter = function (item, event) {
         let age = Number(event.currentTarget.value);
         self.ageValue(age);
         filterAll();
@@ -140,7 +140,7 @@ function TableViewModel() {
             filterAll();
         }
     }
-    this.salaryFilter = function (event) {
+    this.salaryFilter = function (item, event) {
         let salary = Number(event.currentTarget.value);
         self.salaryValue(salary);
         filterAll();
@@ -184,7 +184,7 @@ function TableViewModel() {
         generatePagination();
 
     }
-
+  
     this.paginated = ko.computed(function () {
         var first = self.pageNumber() * Number(self.rowsPerPage());
         return self.rows.slice(first, first + Number(self.rowsPerPage()));
@@ -216,14 +216,13 @@ function TableViewModel() {
         });
     }
     this.clearAll = function () {
-        this.rowsPerPage(10)
+        this.rowsPerPage(10);
         this.searchValue('');
         this.countries([]);
         this.cities([]);
-        this.displayFilters(false);
+        this.displayFilters(true);
         this.rows(data);
         generatePagination();
     }
 }
-
 ko.applyBindings(new TableViewModel());
