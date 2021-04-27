@@ -2,7 +2,6 @@ function TableViewModel() {
     this.rows = ko.observableArray(data);
     var self = this;
     this.displayFilters = ko.observable(false);
-
     this.countries = ko.observableArray();
     this.cities = ko.observableArray();
     this.citiesByCountry = ko.observableArray();
