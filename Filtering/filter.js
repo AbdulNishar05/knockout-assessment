@@ -11,7 +11,7 @@ function TableViewModel() {
     this.rowsPerPage = ko.observable(10);
     this.totalPagesHolder = ko.observableArray();
     this.totalPages = ko.observable(0);
-    this.showItems = function (item, event) {
+    this.showItems = function (event) {
         self.pageNumber(0);
         self.rowsPerPage(event.currentTarget.value);
         generatePagination();
