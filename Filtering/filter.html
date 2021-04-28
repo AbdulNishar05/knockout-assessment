@@ -113,6 +113,7 @@
                 <th>Salary</th>
                 <th>City</th>
                 <th>Country</th>
+
             </tr>
         </thead>
         <tbody data-bind="foreach: paginated">
@@ -133,6 +134,16 @@
     </table>
     <div id="pages" data-bind="visible : showPage">
         <button data-bind="click: previous, enable: hasPrevious">&lt;</button>
+        <button data-bind="click: next, enable: hasNext">1</button>
+        <button data-bind="click: next, enable: hasNext">2</button>
+        <button data-bind="click: next, enable: hasNext">3</button>
+        <button data-bind="click: next, enable: hasNext">4</button>
+        <button data-bind="click: next, enable: hasNext">5</button>
+        <button data-bind="click: next, enable: hasNext">6</button>
+        <button data-bind="click: next, enable: hasNext">7</button>
+        <button data-bind="click: next, enable: hasNext">8</button>
+        <button data-bind="click: next, enable: hasNext">9</button>
+        <button data-bind="click: next, enable: hasNext">10</button>
         <button data-bind="click: next, enable: hasNext">&gt;</button>
     </div>
     <script src="knockout-3.5.1.js"></script>
