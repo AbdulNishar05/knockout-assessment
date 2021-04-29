@@ -1,7 +1,6 @@
 function TableViewModel() {
     this.rows = ko.observableArray(data);
     var self = this;
-    this.displayFilters = ko.observable(false);
     this.countries = ko.observableArray();
     this.cities = ko.observableArray();
     this.citiesByCountry = ko.observableArray();
@@ -16,10 +15,6 @@ function TableViewModel() {
         self.rowsPerPage(event.currentTarget.value);
         generatePagination();
     }
-    this.showFilterOption = function () {
-        self.displayFilters(!self.displayFilters());
-    }
- 
     this.filterByCountry = function (item, event) {
         let country = event.currentTarget.value
         if (event.currentTarget.checked) {
@@ -220,7 +215,6 @@ function TableViewModel() {
         this.searchValue('');
         this.countries([]);
         this.cities([]);
-        this.displayFilters(true);
         this.rows(data);
         generatePagination();
     }
