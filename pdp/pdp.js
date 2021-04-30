@@ -77,7 +77,6 @@ $(document).ready(function () {
                 var selectedVal = self.first();
 
                 if (!selectedVal) {
-                    //console.log("inside if");
                     return;
                 }
 
