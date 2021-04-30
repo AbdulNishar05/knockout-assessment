@@ -1,3 +1,4 @@
+
 function TableViewModel() {
     this.rows = ko.observableArray(data);
     var self = this;
@@ -21,19 +22,16 @@ function TableViewModel() {
             let cities = document.getElementsByName(country);
             for (let j = 0; j < cities.length; j++) {
                 let city = cities[j].value;
-                document.getElementsByClassName(country)[j].style.display = 'inline-block';
                 if (!self.citiesByCountry().includes(city)) self.citiesByCountry().push(city);
             }
         } else {
             let cities = document.getElementsByName(country);
             for (let j = 0; j < cities.length; j++) {
                 let city = cities[j].value;
-                document.getElementsByClassName(country)[j].style.display = 'none';
                 if (self.citiesByCountry().includes(city)) {
-                   self.citiesByCountry.remove(city);
+                    self.citiesByCountry.remove(city);
                 }
                 if (cities[j].checked) {
-                    document.getElementsByClassName(country)[j].style.display = 'inline-block';
                     self.cities.remove(cities[j].value);
                 }
                 cities[j].checked = false;
@@ -53,7 +51,6 @@ function TableViewModel() {
             let len = citiesCB.length;
             for (let i = 0; i < len; i++) {
                 let city = citiesCB[i].value;
-                document.getElementsByClassName(itCountry)[i].style.display = 'inline-block';
                 if (citiesCB[i].checked) {
                     if (!self.citiesByCountry().includes(city)) {
                         self.citiesByCountry().push(city);
@@ -179,7 +176,7 @@ function TableViewModel() {
         generatePagination();
 
     }
-  
+
     this.paginated = ko.computed(function () {
         var first = self.pageNumber() * Number(self.rowsPerPage());
         return self.rows.slice(first, first + Number(self.rowsPerPage()));
